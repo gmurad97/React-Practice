@@ -12,7 +12,7 @@ const App = () => {
                         title={item.title}
                         description={item.description}
                         price={item.price}
-                        img_src={item.img_path}
+                        img_name={item.img_name}
                     />
                 ))}
             </div>

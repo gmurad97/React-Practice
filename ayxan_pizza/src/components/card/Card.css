@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,10 +9,10 @@
 
 .card {
     width: 100%;
-    min-height: 250px;
+    min-height: 265px;
     display: flex;
     flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.64);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .card:nth-child(6n),
@@ -39,10 +42,18 @@
 }
 
 .card__title {
+    line-height: 1.4;
     color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Josefin Sans", Arial, sans-serif;
 }
 
 .card__description {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
     color: gray;
 }
 
@@ -56,16 +67,21 @@
 }
 
 .card__price {
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     color: #fac564;
     margin-right: 16px;
+    line-height: 1.8;
+    font-weight: 300;
 }
 
 .card__btn {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 13px;
     border: 1px solid white;
     outline: none;
     background-color: transparent;
-    padding: 6px 12px;
+    padding: 5px 12px;
     color: white;
     cursor: pointer;
     transition: background-color 128ms linear, border 128ms linear, color 128ms linear;
