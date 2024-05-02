@@ -27,6 +27,7 @@ const Main = () => {
                         {product_list.map((product) => (
                             <Card 
                             key={product.id}
+                            product_id={product.id}
                             product_title={product.title}
                             product_description={product.description}
                             product_price={product.price}
