@@ -1,0 +1,27 @@
+.cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cart__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.cart__info>i {
+    margin-right: 8px;
+}
+
+.cart__item-count {
+    font-weight: bold;
+}
+
+.cart__item-price {
+    font-weight: 400;
+}
