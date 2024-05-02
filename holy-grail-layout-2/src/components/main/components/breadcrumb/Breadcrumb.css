@@ -39,6 +39,11 @@
     text-decoration: none;
     font-size: 18px;
     color: #9fbc2e;
+    transition: color 128ms linear;
+}
+
+.breadcrumb__link:hover{
+    color: #798d21;
 }
 
 .breadcrumb__link>i {

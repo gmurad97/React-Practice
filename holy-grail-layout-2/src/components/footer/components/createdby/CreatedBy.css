@@ -8,4 +8,9 @@
 .created-by__link {
     text-decoration: none;
     color: #b4bf04;
+    transition: color 128ms linear;
+}
+
+.created-by__link:hover{
+    color: #798d21;
 }

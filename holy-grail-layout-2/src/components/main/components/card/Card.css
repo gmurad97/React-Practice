@@ -70,4 +70,10 @@
     color: #ffffff;
     border-radius: 5px;
     padding: 12px 0px;
+    cursor: pointer;
+    transition: background-color 128ms linear;
+}
+
+.card__footer-button:hover {
+    background-color: #798d21;
 }

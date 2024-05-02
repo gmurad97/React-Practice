@@ -11,6 +11,11 @@
     border: 1px solid #e0e0e0;
     outline: none;
     padding: 10px;
+    transition: background-color 128ms linear;
+}
+
+.search__input:focus {
+    background-color: transparent;
 }
 
 .search__button {
@@ -19,4 +24,10 @@
     color: #ffffff;
     padding: 10px 36px;
     cursor: pointer;
+    transition: background-color 128ms linear, border 128ms linear;
+}
+
+.search__button:hover {
+    background-color: rgb(40, 80, 100);
+    border: 1px solid rgb(40, 80, 100);
 }
