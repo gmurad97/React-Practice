@@ -1,0 +1,46 @@
+.breadcrumb {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.breadcrumb__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+}
+
+.breadcrumb__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+}
+
+.breadcrumb__item:is(:not(:last-of-type))::after {
+    content: "/";
+    font-weight: bold;
+    color: #000000;
+    margin: 0px 6px;
+}
+
+.breadcrumb__item:not(:last-of-type) {
+    margin: 0px 2px;
+}
+
+.breadcrumb__link {
+    display: flex;
+    text-decoration: none;
+    font-size: 18px;
+    color: #9fbc2e;
+}
+
+.breadcrumb__link>i {
+    font-size: 20px;
+}

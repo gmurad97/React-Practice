@@ -1,0 +1,45 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 100%;
+    background-color: #ffffff;
+    padding: 16px 24px;
+}
+
+.category-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1 1 20%;
+}
+
+.category-nav__title,
+.article__title {
+    font-size: 24px;
+    color: #152732;
+    margin-bottom: 16px;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1 1 80%;
+    padding-left: 32px;
+}
+
+.article__section {
+    width: 100%;
+    height: auto;
+}
+
+.article__section:not(:last-of-type) {
+    margin-bottom: 32px;
+}
+
+.card__wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
