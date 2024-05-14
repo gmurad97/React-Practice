@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica", sans-serif;
+}
+
+.app{
+    margin: 32px 0px;
+    padding: 0px 100px;
+}
