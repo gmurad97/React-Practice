@@ -6,7 +6,6 @@ const CardSection = () => {
 
     const [persons, setPersons] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function getUsers() {
@@ -21,6 +20,7 @@ const CardSection = () => {
             setPersons(json);
         }
         getUsers();
+        setLoading(false);
     }, []);
 
     const closePerson = (personId) => {
@@ -31,13 +31,19 @@ const CardSection = () => {
         ));
     }
 
-    return (
-        <div className="card__section">
-            {persons.map((person) => (
-                <CardItem itemData={person} closePerson={closePerson} key={person.id} />
-            ))}
-        </div>
-    );
+    if (loading) {
+        return <h1>Loading data...</h1>
+    }
+    else {
+        return (
+
+            <div className="card__section">
+                {persons.map((person) => (
+                    <CardItem itemData={person} closePerson={closePerson} key={person.id} />
+                ))}
+            </div>
+        );
+    }
 }
 
 export default CardSection;
