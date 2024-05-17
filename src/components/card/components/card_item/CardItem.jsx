@@ -3,17 +3,17 @@ import "./CardItem.css";
 
 class CardItem extends React.Component {
     render() {
-        const { id, first_name, last_name, description, img } = this.props.itemData;
+        const { id, name, email } = this.props.itemData;
         return (
             <div className="card__item">
                 <div className="card__header">
                     <div className="card__img-block">
-                        <img className="card__img" src={img} alt="Card" />
+                        <img className="card__img" src="https://media.moddb.com/images/articles/1/73/72743/image_error_full.png" alt="Card" />
                     </div>
                 </div>
                 <div className="card__body">
-                    <h1 className="card__title">{first_name} {last_name}</h1>
-                    <p className="card__description">{description}</p>
+                    <h1 className="card__title">{"ID:" + id + " " + name}</h1>
+                    <p className="card__description">Email: {email}</p>
                 </div>
                 <div className="card__footer">
                     <button
