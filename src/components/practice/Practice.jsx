@@ -1,15 +1,32 @@
-import { createContext, useContext, useState, useRef } from "react";
+import { createContext, useContext, useState, useRef, useEffect } from "react";
 import { ThemeContext, ThemeProvider } from "./context/ThemeContext";
 
 const GlobalContext = createContext([]);
 
 
 const Practice = () => {
+    const [count, setCount] = useState(0);
+    const prevCount = useRef(0);
+
+    useEffect(() => {
+        prevCount.current = count;
+    }, [count])
+
+    return (
+        <>
+            <input type="text" onChange={(e) => setCount(e.target.value)} />
+            <h1>Current:{count}</h1>
+            <h1>Prev:{prevCount.current}</h1>
+        </>
+    );
+}
+
+const Practice21 = () => {
     //input element in useref
 
     //if you need to change a static element, then use useref
     //otherwise, if we change, add, or delete data from an object, for example (dynamic content) then we use useState
-    const inpRef = useRef(null);
+    const inpRef = useRef();
 
 
     const onButtonClick = () => {
