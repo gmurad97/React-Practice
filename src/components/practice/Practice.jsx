@@ -1,35 +1,30 @@
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 
 const Practice = () => {
     const counterInitialState = { count: 0 };
-
     const counterReducer = (state, action) => {
-        switch (action.type) {
-            case "increment":
-                return { count: state.count + 1 };
-            case "decrement":
-                return { count: state.count - 1 };
+        switch (action.operand) {
+            case "plus":
+                return { count: state.count + action.increment };
+            case "minus":
+                return { count: state.count - action.decrement };
+            case "multiply":
+                return { count: state.count * action.multiply };
             case "reset":
-                return { count: 0 };
+                return { count: 0 }
             default:
-                return { count: "error" }
+                return { count: 0 }
         }
     }
-
-    const [counter, counterDispatch] = useReducer(counterReducer, counterInitialState);
+    const [count, countDispatch] = useReducer(counterReducer, counterInitialState);
 
     return (
         <div className="practice">
-            <p>Счет: {counter.count}</p>
-            <button onClick={() => counterDispatch({ type: "increment" })}>
-                Увеличить
-            </button>
-            <button onClick={() => counterDispatch({ type: "decrement" })}>
-                Уменьшить
-            </button>
-            <button onClick={() => counterDispatch({ type: "reset" })}>
-                Сбросить
-            </button>
+            <h1>Count: {count.count}</h1>
+            <button onClick={() => countDispatch({ "operand": "plus", "increment": 1 })}>Plus</button>
+            <button onClick={() => countDispatch({ "operand": "minus", "decrement": 1 })}>Minus</button>
+            <button onClick={() => countDispatch({ "operand": "multiply", "multiply": 2 })}>Multiply(2x)</button>
+            <button onClick={() => countDispatch({ "operand": "reset" })}>Reset</button>
         </div>
     );
 }

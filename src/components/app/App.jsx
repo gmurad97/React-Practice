@@ -1,23 +1,11 @@
-import React from "react";
-import "./App.css";
-/* import CardSection from "../card/CardSection"; */
-import Practice from "../practice/Practice.jsx";
-/* import Crypto from "../crypto/Crypto.jsx"; */
+import Practice from "../practice/Practice";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="app">
-                <Practice />
-                {/* <Practice /> */}
-                {/* <CardSection /> */}
-            </div>
-        );
-    }
+const App = () => {
+    return (
+        <div className="app">
+            <Practice />
+        </div>
+    );
 }
 
 export default App;
