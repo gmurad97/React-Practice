@@ -1,9 +1,10 @@
 import Practice from "../practice/Practice";
+import Pagination from "../pagination/Pagination";
 
 const App = () => {
     return (
         <div className="app">
-            <Practice />
+            <Pagination />
         </div>
     );
 }
