@@ -1,49 +1,43 @@
-import { useState, useEffect } from "react";
 import "./Pagination.css";
-import posts from "../../mock.js";
 
-const Pagination = () => {
-    const [postsData, setPostsData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-
-    useEffect(() => {
-        setPostsData(posts);
-    }, [])
-
-    const perPage = 3;
-    const totalPages = Math.ceil(postsData.length / perPage);
+const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
 
     const paginationButtons = () => {
         const buttons = [];
+        const maxButtons = 3;
 
-        let startPage = Math.max(1, currentPage - 1);
-        let endPage = Math.min(totalPages, startPage + 5 - 1);
+        let from = Math.max(1, currentPage - 1);
+        let to = Math.min(totalPages, from + maxButtons - 1);
 
-        if (endPage - startPage < 5 - 1) {
-            startPage = Math.max(1, endPage - 5 + 1);
+
+        if (to - from < maxButtons - 1) {
+            from = Math.max(1, to - maxButtons + 1);
         }
 
-        for (let x = startPage; x <= endPage; x++) {
-            buttons.push(<button key={x} onClick={() => setCurrentPage(x)}>{x}</button>);
+        for (let x = from; x <= to; x++) {
+            buttons.push(
+                <button onClick={() => setCurrentPage(x)} key={x}>{x === currentPage ? `[${x}]` : x}</button>
+            );
         }
 
-        buttons.unshift(<button key="pagination_first_page_btn_pGniTS1">First Page</button>); //first button
-        buttons.push(<button key="pagination_last_page_btn_pGniTS2">Last Page</button>); // last button
+        buttons.unshift(<button onClick={() => setCurrentPage(1)} key="pagination_first_page_btn">First Page</button>);
+        buttons.push(<button onClick={() => setCurrentPage(totalPages)} key="pagination_last_page_btn">Last Page</button>)
+
         return buttons;
     }
 
-
     return (
+        <div className="pagination">
+            {paginationButtons()}
+            <input
+                className="numeric"
+                onChange={(event) => setCurrentPage(event.target.value)}
+                value={currentPage}
+                type="number"
+                min={1}
+                max={totalPages}
 
-        <div className="content">
-            <div className="pagination">
-                {paginationButtons()}
-            </div>
-            {postsData
-                .slice((currentPage - 1) * perPage, perPage * currentPage)
-                .map((item, index) => (
-                    <h3 key={index}>{item.title}</h3>
-                ))}
+            />
         </div>
     );
 }
