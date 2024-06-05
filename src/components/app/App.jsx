@@ -1,9 +1,9 @@
-import Posts from "../posts/Posts";
+import Practice from "../practice/Practice.jsx";
 
 const App = () => {
     return (
         <div className="app">
-            <Posts />
+            <Practice />
         </div>
     );
 }
