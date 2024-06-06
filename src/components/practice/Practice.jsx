@@ -1,39 +1,14 @@
-import { useContext, useState } from "react";
-import { ThemeContext, ThemeProvider } from "../context/ThemeContext";
+import useFetch from "../hooks/useFetch";
 
 const Practice = () => {
-    return (
-        <ThemeProvider>
-            <div className="practice">
-                <Component />
-            </div>
-        </ThemeProvider>
-    );
-}
 
-const Component = () => {
-    return (
-        <div className="component">
-            <Component2 />
-        </div>
-    );
-}
-
-const Component2 = () => {
-    return (
-        <div className="component2">
-            <Component3 />
-        </div>
-    );
-}
-
-const Component3 = () => {
-    const [theme, setTheme] = useContext(ThemeContext);
+    const [data, setData] = useFetch("https://jsonplaceholder.typicode.com/users", []);
 
     return (
-        <div className="component3">
-            <h1>{theme}</h1>
-            <button onClick={() => theme === "Dark mode" ? setTheme("Light mode") : setTheme("Dark mode")}>Change</button>
+        <div className="practice">
+            {data.map((item,index)=>(
+                <h3 key={index}>{item.name}</h3>
+            ))}
         </div>
     );
 }
