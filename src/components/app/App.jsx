@@ -1,4 +1,4 @@
-import Practice from "../practice/Practice.jsx";
+import Practice from "../practice/Practice";
 
 const App = () => {
     return (

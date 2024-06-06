@@ -1,22 +1,40 @@
-const { useCallback, useEffect } = require("react")
+import { useContext, useState } from "react";
+import { ThemeContext, ThemeProvider } from "../context/ThemeContext";
 
 const Practice = () => {
-    const memorizedCallback = useCallback(()=>{
-        console.log("component redered")
-    },[]);
+    return (
+        <ThemeProvider>
+            <div className="practice">
+                <Component />
+            </div>
+        </ThemeProvider>
+    );
+}
 
-    useEffect(()=>{
-        memorizedCallback();
-    }, []);
+const Component = () => {
+    return (
+        <div className="component">
+            <Component2 />
+        </div>
+    );
+}
 
-    const clickFunc = () => {
-        memorizedCallback();
-    }
+const Component2 = () => {
+    return (
+        <div className="component2">
+            <Component3 />
+        </div>
+    );
+}
 
-    return(
-        <>
-        <h1 onClick={clickFunc}>practice</h1>
-        </>
+const Component3 = () => {
+    const [theme, setTheme] = useContext(ThemeContext);
+
+    return (
+        <div className="component3">
+            <h1>{theme}</h1>
+            <button onClick={() => theme === "Dark mode" ? setTheme("Light mode") : setTheme("Dark mode")}>Change</button>
+        </div>
     );
 }
 
