@@ -1,9 +1,10 @@
 import Practice from "../practice/Practice";
+import Price from "../price/Price";
 
 const App = () => {
     return (
         <div className="app">
-            <Practice />
+            <Price />
         </div>
     );
 }
