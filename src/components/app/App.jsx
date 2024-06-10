@@ -1,10 +1,9 @@
-import Practice from "../practice/Practice";
-import Price from "../price/Price";
+import Practice from "../practice/Practice.jsx";
 
 const App = () => {
     return (
         <div className="app">
-            <Price />
+            <Practice />
         </div>
     );
 }
