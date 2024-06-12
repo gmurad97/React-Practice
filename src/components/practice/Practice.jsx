@@ -1,12 +1,25 @@
-import useFetch from "../../hooks/useFetch";
+import { useDeferredValue, useEffect, useState } from "react";
 
 const Practice = () => {
-    const [data] = useFetch("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
 
-    console.log(data);
+    const [stack] = useState(Array(5000).fill().map((_, index) => "Item " + index));
+    const [searchTerm, setSearchTerm] = useState("");
+
+    function handleSearch(e) {
+        setSearchTerm(e.target.value);
+    }
+
+    const filteredStack = stack.filter(item =>
+        item.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
-        <div className="practice"></div>
+        <div className="practice">
+            <input type="text" onChange={handleSearch} placeholder="Enter item number to search" />
+            {filteredStack.map((item, index) => (
+                <p key={index}>{item}</p>
+            ))}
+        </div>
     );
 }
 
