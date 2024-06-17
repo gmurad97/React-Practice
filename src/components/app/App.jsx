@@ -4,7 +4,9 @@ import HookPractice from "../hookPractice/HookPractice.jsx";
 const App = () => {
     return (
         <div className="app">
-            <HookPractice />
+            <Practice.Header />
+            <Practice.Main />
+            <Practice.Footer />
         </div>
     );
 }
