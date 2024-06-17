@@ -1,18 +1,42 @@
 import { Suspense, useEffect, useId, useState } from "react";
 
 const HookPractice = () => {
-    const id = useId();
+    /* const id = useId();
 
-    console.log(process.env.REACT_APP_API_TOKEN);
+    console.log(process.env.REACT_APP_API_TOKEN); */
+
+
+    function search(formData) {
+        formData.preventDefault();
+        console.log(formData);
+    }
 
     return (
         <div className="hookPractice">
+            <form /* experimental action={search} */ onSubmit={search}>
+                <input name="query" />
+                <button type="submit">Search</button>
+            </form>
 
-            <label htmlFor={id + "firstName"}>FirstName</label>
+
+            {/*             <style>
+                {`textarea{background-color:blue;}`}
+            </style>
+
+            <select name="backend_name" id="persons" defaultValue={[2, 3]} multiple={true}>
+                <option value="1">Alex</option>
+                <option value="2">Vladimir</option>
+                <option value="3">Murad</option>
+            </select>
+
+            <textarea name="" id="" value={"test-example"} />
+            <progress value={0.32} /> */}
+
+            {/*             <label htmlFor={id + "firstName"}>FirstName</label>
             <input type="text" id={id + "firstName"} />
 
             <label htmlFor={id + "lastName"}>LastName</label>
-            <input type="text" id={id + "lastName"} />
+            <input type="text" id={id + "lastName"} /> */}
         </div>
     );
 }
