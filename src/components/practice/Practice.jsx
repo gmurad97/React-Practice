@@ -2,6 +2,7 @@ import { useDeferredValue, useState } from "react";
 
 const Practice = {
     Header: () => {
+        
         return (<h1>Header</h1>);
     },
 
