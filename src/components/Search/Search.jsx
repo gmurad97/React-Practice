@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
+import { createPortal } from "react-dom";
 
 const Search = () => {
     const [users, setUsers] = useState([]);
@@ -19,12 +20,16 @@ const Search = () => {
 
     const filteredUsers = users.filter((user) => user.firstName.toLowerCase().startsWith(query.toLowerCase()));
 
-
     return (
         <div className="container">
             <input type="text" onChange={(e) => searchName(e)} />
-            {filteredUsers.map((user) => (
-                <h1>{user.firstName}</h1>
+            {createPortal((
+                <dialog open={true}>
+                    <h1>This is Dialog</h1>
+                </dialog>
+            ), document.getElementById("root"))}
+            {filteredUsers.map((user, index) => (
+                <h1 key={index}>{user.firstName}</h1>
             ))}
         </div>
     );
