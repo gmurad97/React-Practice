@@ -1,8 +1,27 @@
 import { useDeferredValue, useState } from "react";
+import { flushSync } from "react-dom";
 
-const Practice = {
+const Practice = () => {
+    const [state, setState] = useState(false);
+
+    const urgentChangeState = () => {
+        //sync
+        flushSync(() => {
+            setState(prev => prev ? false : true);
+        });
+    }
+
+    return (
+        <div className="practice">
+            <h1>State:{state ? "TRUE" : "FALSE"}</h1>
+            <button type="button" onClick={() => urgentChangeState()}>Click me</button>
+        </div>
+    );
+}
+
+const PracticeOld2 = {
     Header: () => {
-        
+
         return (<h1>Header</h1>);
     },
 

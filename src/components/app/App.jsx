@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
 const App = () => {
     return (
         <div className="app" id="app">
-            <Search />
+            <Practice />
         </div>
     );
 }
