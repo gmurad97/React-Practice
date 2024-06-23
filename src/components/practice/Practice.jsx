@@ -1,29 +1,31 @@
-import { useDeferredValue, useEffect, useState } from "react";
+import { isValidElement, useDeferredValue, useEffect, useState } from "react";
 import { findDOMNode, flushSync } from "react-dom";
 
 const Practice = () => {
-    const [state, setState] = useState(false);
+    const element = <h1>Heading H1</h1>
+    console.log(isValidElement(element));
+    /* const [state, setState] = useState(false); */
 
-    useEffect(()=>{
+    /*     useEffect(()=>{ */
 
-        //findDOMNode is deprecated, it is better not to use it, but to use the best analog of useref
-/*         const domElement = findDOMNode(document.getElementById("root"));
-        console.log(domElement) */
+    //findDOMNode is deprecated, it is better not to use it, but to use the best analog of useref
+    /*         const domElement = findDOMNode(document.getElementById("root"));
+            console.log(domElement) */
 
-    },[]);
-
-    const urgentChangeState = () => {
-        //sync
-        flushSync(() => {
-            setState(prev => prev ? false : true);
-        });
-    }
+    /*     },[]);
+    
+        const urgentChangeState = () => {
+            //sync
+            flushSync(() => {
+                setState(prev => prev ? false : true);
+            }); */
+    /*     } */
 
 
     return (
         <div className="practice">
-            <h1>State:{state ? "TRUE" : "FALSE"}</h1>
-            <button type="button" onClick={() => urgentChangeState()}>Click me</button>
+{/*             <h1>State:{state ? "TRUE" : "FALSE"}</h1>
+            <button type="button" onClick={() => urgentChangeState()}>Click me</button> */}
         </div>
     );
 }
