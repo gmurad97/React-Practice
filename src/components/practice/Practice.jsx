@@ -1,8 +1,16 @@
-import { useDeferredValue, useState } from "react";
-import { flushSync } from "react-dom";
+import { useDeferredValue, useEffect, useState } from "react";
+import { findDOMNode, flushSync } from "react-dom";
 
 const Practice = () => {
     const [state, setState] = useState(false);
+
+    useEffect(()=>{
+
+        //findDOMNode is deprecated, it is better not to use it, but to use the best analog of useref
+/*         const domElement = findDOMNode(document.getElementById("root"));
+        console.log(domElement) */
+
+    },[]);
 
     const urgentChangeState = () => {
         //sync
@@ -10,6 +18,7 @@ const Practice = () => {
             setState(prev => prev ? false : true);
         });
     }
+
 
     return (
         <div className="practice">
