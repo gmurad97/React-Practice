@@ -1,70 +1,40 @@
-import { isValidElement, useDeferredValue, useEffect, useState } from "react";
-import { findDOMNode, flushSync } from "react-dom";
+import axios from "axios";
+
+import { useEffect, useState } from "react";
 
 const Practice = () => {
-    const element = <h1>Heading H1</h1>
-    console.log(isValidElement(element));
-    /* const [state, setState] = useState(false); */
+    const [price, setPrice] = useState(0.0);
+    const [oldPrice, setOldPrice] = useState(0.0);
 
-    /*     useEffect(()=>{ */
+    useEffect(() => {
+        const req = async () => {
+            const response = await axios.get("https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
+            setPrice((prevValue) => {
+                setOldPrice(prevValue);
+                return parseFloat(response.data.price);
+            });
+        }
 
-    //findDOMNode is deprecated, it is better not to use it, but to use the best analog of useref
-    /*         const domElement = findDOMNode(document.getElementById("root"));
-            console.log(domElement) */
+        const interval = setInterval(() => {
+            req();
+        }, 4096);
 
-    /*     },[]);
-    
-        const urgentChangeState = () => {
-            //sync
-            flushSync(() => {
-                setState(prev => prev ? false : true);
-            }); */
-    /*     } */
+        return () => {
+            clearInterval(interval);
+        }
+
+    }, []);
 
 
-    return (
-        <div className="practice">
-{/*             <h1>State:{state ? "TRUE" : "FALSE"}</h1>
-            <button type="button" onClick={() => urgentChangeState()}>Click me</button> */}
-        </div>
-    );
-}
-
-const PracticeOld2 = {
-    Header: () => {
-
-        return (<h1>Header</h1>);
-    },
-
-    Main: () => {
-        return (<h1>Main</h1>);
-    },
-
-    Footer: () => {
-        return (<h1>Footer</h1>);
-    }
-}
-
-const PracticeOld = () => {
-    const [stack] = useState(Array(10000).fill().map((_, index) => "Item " + index));
-    const [searchTerm, setSearchTerm] = useState("");
-
-    function handleSearch(e) {
-        setSearchTerm(e.target.value);
-    }
-
-    const filteredStack = stack.filter(item =>
-        item.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    const deferredFilteredStack = useDeferredValue(filteredStack);
+    console.log(price > oldPrice, `${price}  ${oldPrice}`);
 
     return (
         <div className="practice">
-            <input type="text" onChange={handleSearch} placeholder="Enter item number to search" />
-            {deferredFilteredStack.map((item, index) => (
-                <p key={index}>{item}</p>
-            ))}
+            <h1
+                style={price > oldPrice ? { backgroundColor: "green" } : { backgroundColor: "red" }}
+            >
+                {price.toFixed(5)}
+            </h1>
         </div>
     );
 }
