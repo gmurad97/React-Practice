@@ -9,7 +9,7 @@ import RefPractice from "../refPractice/RefPractice.jsx";
 const App = () => {
     return (
         <div className="app" id="app">
-            <RefPractice />
+            <Practice />
         </div>
     );
 }

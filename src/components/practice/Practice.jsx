@@ -1,8 +1,39 @@
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+
+//useOptimistic - from react canary/experimental channel
+/* import {useOptimistic} from "react/canary"; */
 
 const Practice = () => {
+/*     const [state, setState] = useState("loading...");
+    const [optimisticState, addOptimistic] = useOptimistic(state, (prevState, newData) => ({
+        ...prevState,
+        ...newData
+    })); */
+
+/*     function clickHandle(){
+        addOptimistic("loading...");
+
+        setTimeout(()=>{
+            try{
+                setState("success");
+            }
+            catch{
+                setState("failed...");
+            }
+        },2048);
+    }
+
+    return (
+        <div className="practice">
+            <h1>{optimisticState}</h1>
+            <button onClick={()=>clickHandle()}></button>
+        </div>
+    ); */
+}
+
+const ThirdPractice = () => {
     const [price, setPrice] = useState(0.0);
     const [oldPrice, setOldPrice] = useState(0.0);
 
