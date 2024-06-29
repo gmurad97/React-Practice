@@ -1,11 +1,15 @@
 import axios from "axios";
 
-import { useEffect, useState} from "react";
+import { useEffect, useInsertionEffect, useState, useSyncExternalStore} from "react";
 
 //useOptimistic - from react canary/experimental channel
 /* import {useOptimistic} from "react/canary"; */
 
 const Practice = () => {
+
+    useInsertionEffect(()=>{
+        //before inserting into the DOM
+    },[]);
 /*     const [state, setState] = useState("loading...");
     const [optimisticState, addOptimistic] = useOptimistic(state, (prevState, newData) => ({
         ...prevState,
