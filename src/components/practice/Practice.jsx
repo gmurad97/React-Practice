@@ -1,16 +1,38 @@
 import axios from "axios";
 
-import { lazy, useEffect, useInsertionEffect, useState, useSyncExternalStore } from "react";
+import { lazy, useEffect, useInsertionEffect, useState, useSyncExternalStore, useTransition } from "react";
 
 //useOptimistic - from react canary/experimental channel
 /* import {useOptimistic} from "react/canary"; */
 
 
+
+const Practice = () => {
+
+    const [isPending, startTransition] = useTransition();
+    const [state, setState] = useState(512);
+
+    useEffect(() => {
+        setTimeout(() => {
+            startTransition(() => {
+                setState(1024); // start transition and isPending true if isPending false transition ended
+            })
+        }, 2048);
+    }, []);
+
+    return (
+        <div className="practice">
+            {state}
+        </div>
+    )
+}
+
+
+
 //if the component is in a separate file
 /* const Practice = lazy(() => import("./Practice")) */
 
-
-const Practice = lazy(() => {
+const LazyComponentPractice = lazy(() => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({
