@@ -1,40 +1,62 @@
 import axios from "axios";
 
-import { useEffect, useInsertionEffect, useState, useSyncExternalStore} from "react";
+import { lazy, useEffect, useInsertionEffect, useState, useSyncExternalStore } from "react";
 
 //useOptimistic - from react canary/experimental channel
 /* import {useOptimistic} from "react/canary"; */
 
-const Practice = () => {
 
-    useInsertionEffect(()=>{
+//if the component is in a separate file
+/* const Practice = lazy(() => import("./Practice")) */
+
+
+const Practice = lazy(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                default: () => (
+                    <div className="practice">
+                        Lazy Loaded Practice Component
+                    </div>
+                )
+            })
+        }, 5120)
+    })
+})
+
+
+
+
+const OldOldPractice = () => {
+
+    useInsertionEffect(() => {
         //before inserting into the DOM
-    },[]);
-/*     const [state, setState] = useState("loading...");
-    const [optimisticState, addOptimistic] = useOptimistic(state, (prevState, newData) => ({
-        ...prevState,
-        ...newData
-    })); */
+    }, []);
+    /*     const [state, setState] = useState("loading...");
+        const [optimisticState, addOptimistic] = useOptimistic(state, (prevState, newData) => ({
+            ...prevState,
+            ...newData
+        })); */
 
-/*     function clickHandle(){
-        addOptimistic("loading...");
-
-        setTimeout(()=>{
-            try{
-                setState("success");
-            }
-            catch{
-                setState("failed...");
-            }
-        },2048);
-    }
-
-    return (
-        <div className="practice">
-            <h1>{optimisticState}</h1>
-            <button onClick={()=>clickHandle()}></button>
-        </div>
-    ); */
+    /*     function clickHandle(){
+            addOptimistic("loading...");
+    
+            setTimeout(()=>{
+                try{
+                    setState("success");
+                }
+                catch{
+                    setState("failed...");
+                }
+            },2048);
+        }
+    
+        return (
+            <div className="practice">
+                <h1>{optimisticState}</h1>
+                <button onClick={()=>clickHandle()}></button>
+            </div>
+        ); */
 }
 
 const ThirdPractice = () => {
