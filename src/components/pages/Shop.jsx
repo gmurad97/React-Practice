@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 
 const Shop = () => {
-    const urlQuery = useParams();
+    const { categoryName, productId } = useParams();
+
     return (
         <div className="shop">
-            Shop Page - {urlQuery.categoryName}
+            Shop Page - {typeof categoryName !== "undefined" && typeof productId === "undefined" ? "All " + categoryName + " Products" : categoryName + " Single Product " + productId}
         </div>
     );
 }

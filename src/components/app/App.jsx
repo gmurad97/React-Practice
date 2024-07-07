@@ -16,7 +16,13 @@ const App = () => {
                     <Route index element={<Home />} />
                     <Route path="home" element={<Home />} />
                     <Route path="shop" element={<Shop />} />
+
+                    {/* example.com/electronics */}
                     <Route path="shop/:categoryName" element={<Shop />} />
+
+                    {/* example.com/electronics/159 */}
+                    <Route path="shop/:categoryName/:productId" element={<Shop />} />
+
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="about" element={<About />} />
                 </Route>
