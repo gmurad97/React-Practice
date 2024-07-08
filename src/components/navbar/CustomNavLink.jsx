@@ -6,7 +6,7 @@ const CustomNavLink = ({ to, children }) => {
         end: false // shop/electronics - worked!
     });
 
-    console.log(match);
+    /* console.log(match); */
 
     return (
         <Link to={to} className={match ? "nav-link active" : "nav-link"}>{children}</Link>
