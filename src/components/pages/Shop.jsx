@@ -1,17 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 const Shop = () => {
-    let currentLocation = useLocation();
-    console.log(currentLocation)
-    console.log(currentLocation.pathname);
-    console.log(currentLocation.hash);
-    console.log(currentLocation.key);
-    console.log(currentLocation.search);
-    console.log(currentLocation.state);
-
+    const navigate = useNavigate();
     return (
         <div className="shop">
             Shop Page
+            <button onClick={()=> navigate("/home")}>Go to Home</button>
         </div>
     );
 }
