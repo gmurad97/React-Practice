@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import Navbar from "../components/Navbar/Navbar.jsx";
+import Content from "../components/Content/Content.jsx";
 
 const App = () => {
-    const count = useSelector((state) => state.count);
-    const dispatch = useDispatch();
     return (
         <div className="app">
-            <h1>{count}</h1>
-            <button onClick={() => dispatch({ type: "INCREMENT" })}>INCREMENT</button>
+            <Navbar />
+            <Content />
         </div>
     );
 }
