@@ -1,6 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
 
 const Navbar = () => {
+    /* const dispatch = useDispatch(); */
+    const count = useSelector(state => state.counter.count);
+
     return (
         <div className="navbar">
             <ul className="navbar__list">
@@ -10,7 +14,7 @@ const Navbar = () => {
                 <li className="navbar__list-item">Menu4</li>
             </ul>
             <div className="navbar__data">
-                Counter
+                {count}
             </div>
         </div>
     );
